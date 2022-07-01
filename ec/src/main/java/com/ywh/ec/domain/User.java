@@ -1,8 +1,11 @@
 package com.ywh.ec.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 public class User {
     private int id;
     private String username;
+    @JsonIgnore  // 指定密码字段不返回
     private String pwd;
     public User(){
 

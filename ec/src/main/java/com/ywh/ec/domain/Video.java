@@ -1,19 +1,30 @@
 package com.ywh.ec.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.Date;
+import java.util.List;
 
 public class Video {
     private int id;
     private String title;
     private String summary; // 概要
     private int price;
+    @JsonProperty("cover_img")
     private String coverImg; // 封面
+
+    @JsonProperty("create_time")
+    @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss",locale = "zh",timezone = "GMT+8")
     private Date createTime; // 创建时间
+
+//    @JsonInclude(JsonInclude.Include.NON_NULL)  // 空字段不返回
+    private List<Chapter> chapters;
 
     public Video(){
 
     }
-
     public Video(int id, String title) {
         this.id = id;
         this.title = title;
@@ -68,6 +79,14 @@ public class Video {
         this.createTime = createTime;
     }
 
+    public List<Chapter> getChapters() {
+        return chapters;
+    }
+
+    public void setChapters(List<Chapter> chapters) {
+        this.chapters = chapters;
+    }
+
     @Override
     public String toString() {
         return "Video{" +
@@ -77,6 +96,7 @@ public class Video {
                 ", price=" + price +
                 ", coverImg='" + coverImg + '\'' +
                 ", createTime=" + createTime +
+                ", chapters=" + chapters +
                 '}';
     }
 }
