@@ -29,6 +29,7 @@ public class UserController {
      */
     @GetMapping("list_user")
     public JsonData listUser(){
+//        System.out.println("2222");
         return JsonData.buildSuccess(userService.listUser());
     }
 }
