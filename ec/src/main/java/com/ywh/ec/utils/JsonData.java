@@ -58,5 +58,7 @@ public class JsonData {
     public static JsonData buildError(Object data){
         return new JsonData(-1,data);
     }
-
+    public static JsonData buildCode(Object data,int code){
+        return new JsonData(code,data);
+    }
 }

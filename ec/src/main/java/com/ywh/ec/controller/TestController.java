@@ -19,6 +19,12 @@ public class TestController {
     @Autowired
     private wxConfig wxconfig;
 
+    @GetMapping("list")
+    public JsonData testExt(){
+        int i = 1 / 0;
+        return JsonData.buildSuccess(" ");
+    }
+
     @GetMapping("show_config")
     public JsonData showConfig(){
         Map<String,String> map = new HashMap<>();
